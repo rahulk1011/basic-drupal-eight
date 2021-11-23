@@ -1,0 +1,5 @@
+name: Candidates Data
+description: A form to enter candidate details
+core: 8.x
+package: Custom
+type: module

@@ -1,0 +1,23 @@
+<?php
+
+// If we need to write any hooks or create suggestions for your twig file, we could add the .theme file in your custom Drupal theme
+
+/**
+* @file
+* Functions to support theming in the rahul_one theme.
+*/
+
+/*
+//Implements hook_preprocess_HOOK() for page document templates.
+function rahul_one_preprocess_page(&$variables) {
+	// Add special styling to the front page
+	if ($variables['is_front']) {
+		$variables['#attached']['library'][] = 'rahul_one/front-page';
+	}
+}
+
+// Implements hook_preprocess_HOOK() for node--book--full templates.
+function rahul_one_preprocess_node__book__full(&$variables) {
+	$variables['hello_world'] = 'Drupal 8 Development is amazing!';
+}
+*/

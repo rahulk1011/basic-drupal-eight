@@ -1,0 +1,6 @@
+name: Welcome Module
+type: module
+description: Custom Example Drupal 8 Module
+package: Custom
+version: 1.0
+core: 8.x

@@ -1,0 +1,11 @@
+<?php
+
+function custom_paragraphs_preprocess_paragraph__banner(&$variables) {
+  $paragraph = $variables['paragraph'];
+  if (!$paragraph->field_image->isEmpty()) {
+    $image = $paragraph->field_image->entity->url();
+    $variables['attributes']['style'][] = 'background-image: url("' . $image . '");';
+    $variables['attributes']['style'][] = 'background-size: cover;';
+    $variables['attributes']['style'][] = 'background-position: center center;';
+  }
+}

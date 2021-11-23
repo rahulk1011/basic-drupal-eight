@@ -1,0 +1,7 @@
+candidates.form:
+    path: '/add-candidates'
+    defaults:
+        _title: 'Add Candidates'
+        _form: '\Drupal\candidates\Form\CandidatesForm'
+    requirements:
+        _permission: 'access content'
