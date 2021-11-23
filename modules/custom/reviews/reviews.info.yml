@@ -1,0 +1,5 @@
+name: Reviews
+type: module
+description: This dispaly information what you enter review data.
+core: 8.x
+package: Custom

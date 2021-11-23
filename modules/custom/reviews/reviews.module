@@ -1,0 +1,37 @@
+<?php
+
+/**
+* @file
+* Contains reviews.module.
+*/
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+* Implements hook_help().
+*/
+function reviews_help($route_name, RouteMatchInterface $route_match)
+{
+  switch ($route_name)
+  {
+    // Main module help for the reviews module.
+    case 'help.page.reviews':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This dispaly information what you enter in movie review.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+function reviews_theme()
+{
+  // We use a template file to allow for translation of blocks of content.
+  // Therefore we need to add this content at the theming layer.
+  return [
+    'reviews_description' => [
+      'template' => 'description',
+      'variables' => [],
+    ],
+  ];
+}

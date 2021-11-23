@@ -1,0 +1,6 @@
+name: Test API
+type: module
+description: Custom RESTful API module with GET/POST/PUT/DELETE etc.. method examples.
+package: Custom
+author: Rahul
+core: 8.x

@@ -1,0 +1,31 @@
+reviews.reviews_controller_display:
+  path: '/reviews'
+  defaults:
+    _controller: '\Drupal\reviews\Controller\ReviewsController::display'
+    _title: 'Display'
+  requirements:
+    _permission: 'access content'
+
+reviews.reviews_form:
+  path: '/reviews/form/reviews'
+  defaults:
+    _form: '\Drupal\reviews\Form\ReviewsForm'
+    _title: 'Review Form'
+  requirements:
+    _access: 'TRUE'
+
+reviews.display_table_controller_display:
+  path: '/reviews/hello/table'
+  defaults:
+    _controller: '\Drupal\reviews\Controller\DisplayTableController::display'
+    _title: 'Reviews'
+  requirements:
+    _permission: 'access content'
+
+reviews.delete_form:
+  path: '/reviews/form/delete/{cid}'
+  defaults:
+    _form: '\Drupal\reviews\Form\DeleteForm'
+    _title: 'Delete Form'
+  requirements:
+    _access: 'TRUE'
