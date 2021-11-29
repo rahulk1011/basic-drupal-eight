@@ -1,3 +1,13 @@
+Backup and Migrate 5.0.1, 2021-07-09
+------------------------------------
+#3220548 by paulocs, senzaesclusiva, DamienMcKenna: Warning: Invalid argument
+  supplied for foreach() after CTools security update.
+#3221856 by larisse, DamienMcKenna, paulocs, PranaliMW: In Schedule backup,
+  "keep last backup" option not working.
+#3221636 by hmendes, snehahande, DamienMcKenna: Most recent backups in saved
+  backups tab.
+
+
 Backup and Migrate 5.0.0, 2021-06-14
 ------------------------------------
 #3177961 by DamienMcKenna, nikhitarathore: Full site backup doesn't work.

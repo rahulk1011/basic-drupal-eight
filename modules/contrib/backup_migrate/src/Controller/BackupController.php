@@ -98,7 +98,7 @@ class BackupController extends ControllerBase {
         'data' => $this->t('Date'),
         'class' => [RESPONSIVE_PRIORITY_MEDIUM],
         'field' => 'datestamp',
-        'sort' => 'desc',
+        'sort' => 'asc',
       ],
       [
         'data' => $this->t('Size'),

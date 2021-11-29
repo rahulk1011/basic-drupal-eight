@@ -134,7 +134,7 @@ class Schedule extends ConfigEntityBase {
             $delete = $destination->queryFiles(
               ['bam_scheduleid' => $this->id],
               'datestamp',
-              SORT_DESC,
+              SORT_ASC,
               10,
               $keep
             );

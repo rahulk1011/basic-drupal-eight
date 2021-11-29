@@ -41,11 +41,6 @@ class CandidatesForm extends FormBase {
 				'female' => t('Female'),
 			),
 		);
-		$form['candidate_language'] = array(
-			'#type' => 'textfield',
-			'#title' => t('Primary Language'),
-			'#required' => TRUE,
-		);
 		$form['candidate_city'] = array(
 			'#type' => 'textfield',
 			'#title' => t('City'),
@@ -84,9 +79,6 @@ class CandidatesForm extends FormBase {
 		if ($form_state->getValue('candidate_gender') == '') {
 			$form_state->setErrorByName('candidate_gender', $this->t('Please Enter Candidate Gender'));
 		}
-		if ($form_state->getValue('candidate_language') == '') {
-			$form_state->setErrorByName('candidate_language', $this->t('Please Enter Candidate Language'));
-		}
 		if ($form_state->getValue('candidate_city') == '') {
 			$form_state->setErrorByName('candidate_city', $this->t('Please Enter Candidate City'));
 		}
@@ -110,7 +102,6 @@ class CandidatesForm extends FormBase {
 		$node->title= $form_state->getValue('candidate_name');
 		$node->field_date_of_birth = $form_state->getValue('candidate_dob');
 		$node->field_gender = $form_state->getValue('candidate_gender');
-		$node->field_languages_known = $form_state->getValue('candidate_language');
 		$node->field_city = $form_state->getValue('candidate_city');
 		$node->field_country = $form_state->getValue('candidate_country');
 		$node->field_description = $form_state->getValue('candidate_description');
