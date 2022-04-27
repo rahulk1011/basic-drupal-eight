@@ -40,7 +40,7 @@ class FileuploadForm extends FormBase {
 				'#required' => TRUE,
 				'#description' => t('CSV format only'),
 				'#upload_validators' => $validators,
-				'#upload_location' => 'public://',
+				'#upload_location' => 'public://excel_files/',
 			);
 			$form['csv_table_name'] = array(
 				'#type' => 'select',
