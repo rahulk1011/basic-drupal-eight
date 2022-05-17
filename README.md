@@ -6,3 +6,7 @@ Custom Modules:
 Candidates - A custom module to save simple candidate data in a custom content type. The module includes a form for adding data & data display is done by view. Also, basic CRUD operations can be done using API.
 
 Welcome - A simple custom module to display a basic page content.
+
+File Upload - Custom module to upload CSV file data into custom database tables.
+
+Userinfo - Custom module to enter user information in a custom table in database.
