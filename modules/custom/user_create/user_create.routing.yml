@@ -1,0 +1,7 @@
+user_create.form:
+ path: '/add-new-user'
+ defaults:
+  _title: 'Add New User'
+  _form: '\Drupal\user_create\Form\UsercreateForm'
+ requirements:
+  _permission: 'access content'
