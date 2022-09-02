@@ -29,7 +29,7 @@ class UserinfoForm extends FormBase {
 		
 		if($user->roles->target_id == 'administrator'){
 			$form['form_info'] = array(
-				'#markup' => '<h4>Saving User Info in a custom table in the database</h4><br>',
+				'#markup' => '<h3>Saving User Info in a custom table in the database</h3><br>',
 			);
 			$form['first_name'] = array(
 				'#type' => 'textfield',
@@ -52,11 +52,10 @@ class UserinfoForm extends FormBase {
 				'#maxlength' => 50,
 				'#default_value' => '',
 			);
-			$form['user_age'] = [
-				'#type' => 'textfield',
-				'#title' => t('Age'),
+			$form['user_dob'] = [
+				'#type' => 'date',
+				'#title' => t('Date of Birth'),
 				'#required' => TRUE,
-				'#maxlength' => 20,
 				'#default_value' => '',
 			];
 			$form['user_city'] = array(
@@ -64,6 +63,20 @@ class UserinfoForm extends FormBase {
 				'#title' => t('City'),
 				'#required' => TRUE,
 				'#maxlength' => 50,
+				'#default_value' => '',
+			);
+			$form['user_state'] = array(
+				'#type' => 'textfield',
+				'#title' => t('State'),
+				'#required' => TRUE,
+				'#maxlength' => 50,
+				'#default_value' => '',
+			);
+			$form['user_zipcode'] = array(
+				'#type' => 'textfield',
+				'#title' => t('Zipcode'),
+				'#required' => TRUE,
+				'#maxlength' => 5,
 				'#default_value' => '',
 			);
 
@@ -81,7 +94,6 @@ class UserinfoForm extends FormBase {
 			);
 			return $form;
 		}
-		
 	}
 
 	/**
@@ -97,11 +109,17 @@ class UserinfoForm extends FormBase {
 		if ($form_state->getValue('user_email') == '') {
 			$form_state->setErrorByName('user_email', $this->t('Please Enter Email-ID'));
 		}
-		if ($form_state->getValue('user_age') == '') {
-			$form_state->setErrorByName('user_age', $this->t('Please Enter Age'));
+		if ($form_state->getValue('user_dob') == '') {
+			$form_state->setErrorByName('user_dob', $this->t('Please Date of Birth'));
 		}
 		if ($form_state->getValue('user_city') == '') {
 			$form_state->setErrorByName('user_city', $this->t('Please Enter City'));
+		}
+		if ($form_state->getValue('user_state') == '') {
+			$form_state->setErrorByName('user_state', $this->t('Please Enter State'));
+		}
+		if ($form_state->getValue('user_zipcode') == '') {
+			$form_state->setErrorByName('user_zipcode', $this->t('Please Enter Zipcode'));
 		}
 	}
 
@@ -113,15 +131,17 @@ class UserinfoForm extends FormBase {
 			$conn = Database::getConnection();
 			$field = $form_state->getValues();
 
-			$fields["first_name"] = $field['first_name'];
-			$fields["last_name"] = $field['last_name'];
-			$fields["user_email"] = $field['user_email'];
-			$fields["user_age"] = $field['user_age'];
-			$fields["user_city"] = $field['user_city'];
+			$fields["firstname"] = $field['first_name'];
+			$fields["lastname"] = $field['last_name'];
+			$fields["email"] = $field['user_email'];
+			$fields["dob"] = $field['user_dob'];
+			$fields["city"] = $field['user_city'];
+			$fields["state"] = $field['user_state'];
+			$fields["zipcode"] = $field['user_zipcode'];
 
 			$conn->insert('a_user_info')
 			->fields($fields)->execute();
-			drupal_set_message('User info has been succesfully saved');
+			drupal_set_message('User information has been saved succesfully..');
 		}
 		catch(Exception $ex){
 			drupal_set_message(t($ex->getMessage()), 'error');

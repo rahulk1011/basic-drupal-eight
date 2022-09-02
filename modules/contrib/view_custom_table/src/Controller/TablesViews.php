@@ -19,12 +19,12 @@ class TablesViews extends ControllerBase {
    */
   protected $entityManager;
 
-/**
-  * TablesViews class constructor.
-  *
-  * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityManager
-  *   EntityTypeManager.
-  */
+  /**
+   * TablesViews class constructor.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entityManager
+   *   EntityTypeManager.
+   */
   public function __construct(EntityTypeManagerInterface $entityManager) {
     $this->entityManager = $entityManager;
   }
@@ -41,7 +41,7 @@ class TablesViews extends ControllerBase {
   /**
    * Display views created by custom tables.
    *
-   * @param null $table_name
+   * @param string $table_name
    *   Table name.
    *
    * @return array
@@ -51,7 +51,7 @@ class TablesViews extends ControllerBase {
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
    * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
    */
-  public function content($table_name = NULL) {
+  public function content($table_name = '') {
     $properties = ['base_table' => $table_name];
     $views = $this->entityManager->getStorage('view')->loadByProperties($properties);
     if (!empty($views)) {

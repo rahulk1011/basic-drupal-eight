@@ -188,13 +188,25 @@ class MysqlDate extends FieldPluginBase implements ContainerFactoryPluginInterfa
           return $this->t('%time hence', ['%time' => $this->dateFormatter->formatTimeDiffUntil($value, ['granularity' => is_numeric($custom_format) ? $custom_format : 2])]);
 
         case 'raw time span':
-          return ($time_diff < 0 ? '-' : '') . $this->dateFormatter->formatTimeDiffSince($value, ['strict' => FALSE, 'granularity' => is_numeric($custom_format) ? $custom_format : 2]);
+          return ($time_diff < 0 ? '-' : '') . $this->dateFormatter
+            ->formatTimeDiffSince($value, [
+              'strict' => FALSE,
+              'granularity' => is_numeric($custom_format) ? $custom_format : 2,
+            ]);
 
         case 'inverse time span':
-          return ($time_diff > 0 ? '-' : '') . $this->dateFormatter->formatTimeDiffSince($value, ['strict' => FALSE, 'granularity' => is_numeric($custom_format) ? $custom_format : 2]);
+          return ($time_diff > 0 ? '-' : '') . $this->dateFormatter
+            ->formatTimeDiffSince($value, [
+              'strict' => FALSE,
+              'granularity' => is_numeric($custom_format) ? $custom_format : 2,
+            ]);
 
         case 'time span':
-          $time = $this->dateFormatter->formatTimeDiffSince($value, ['strict' => FALSE, 'granularity' => is_numeric($custom_format) ? $custom_format : 2]);
+          $time = $this->dateFormatter
+            ->formatTimeDiffSince($value, [
+              'strict' => FALSE,
+              'granularity' => is_numeric($custom_format) ? $custom_format : 2,
+            ]);
           return ($time_diff < 0) ? $this->t('%time hence', ['%time' => $time]) : $this->t('%time ago', ['%time' => $time]);
 
         case 'custom':

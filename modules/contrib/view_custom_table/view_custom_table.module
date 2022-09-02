@@ -8,7 +8,6 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
 use Drupal\Core\Database\Database;
-use Drupal\Component\Render\FormattableMarkup;
 
 /**
  * Implements hook_help().
@@ -173,8 +172,12 @@ function view_custom_table_views_data() {
             if (isset($all_entities[$table_relations[$column->Field]])) {
               $entity_info = \Drupal::entityTypeManager()->getDefinition($table_relations[$column->Field]);
               $entity_keys = $entity_info->getKeys();
+              $base = $entity_info->getDataTable();
+              if ($table_relations[$column->Field] == 'file') {
+                $base = 'file_managed';
+              }
               $data[$table_name][$column->Field]['relationship'] = [
-                'base' => $entity_info->getBaseTable(),
+                'base' => $base,
                 'id' => 'standard',
                 'base field' => $entity_keys['id'],
                 'label' => t('@column_name', [
@@ -250,12 +253,17 @@ function view_custom_table_load_table_structure($table_name = NULL, $database = 
   if ($table_name === NULL) {
     return NULL;
   }
-
   $connection = Database::getConnection('default', $database);
-  $query = 'DESCRIBE ' . $connection->escapeTable($table_name);
-  if ($result = $connection->query($query)) {
-    $table_info = $result->fetchAll();
-  }
 
-  return $table_info ?? NULL;
+  /* Check if table exists. */
+  try {
+    $query = 'DESCRIBE ' . $connection->tablePrefix($table_name) . $connection->escapeTable($table_name);
+    if ($result = $connection->query($query)) {
+      $table_info = $result->fetchAll();
+    }
+    return $table_info ?? NULL;
+  }
+  catch (\Exception $e) {
+    return FALSE;
+  }
 }

@@ -32,7 +32,9 @@ class OwnTableList extends ControllerBase {
    * OwnTableList constructor.
    *
    * @param \Drupal\Core\Session\AccountProxyInterface $account
+   *   The user account.
    * @param \Drupal\Core\Config\ImmutableConfig $config
+   *   The config variable.
    */
   public function __construct(AccountProxyInterface $account, ImmutableConfig $config) {
     $this->account = $account;
