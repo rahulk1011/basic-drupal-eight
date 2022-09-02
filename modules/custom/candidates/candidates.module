@@ -1,0 +1,29 @@
+<?php
+
+/**
+* @file
+* Contains candidates.module..
+*/
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+* Implements hook_help().
+*/
+function candidates_help($route_name, RouteMatchInterface $route_match) {
+
+}
+
+/**
+* Implements hook_mail().
+*/
+function candidates_mail($key, &$message, $params) {
+
+}
+
+/**
+* Implements hook_entity_insert().
+*/
+function candidates_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+
+}
