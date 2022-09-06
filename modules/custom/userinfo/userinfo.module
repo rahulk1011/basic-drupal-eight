@@ -22,6 +22,7 @@ function userinfo_cron() {
             \Drupal::logger('userinfo')->notice('Birthday mail sent to '.$user_name);
         };
     }
+    drupal_flush_all_caches();
 }
 
 function userinfo_birthday_mails($user_name, $user_mail) {
