@@ -11,10 +11,8 @@ use Drupal\Core\Url;
 *
 * @package Drupal\reviews\Controller
 */
-class DisplayTableController extends ControllerBase
-{
-  public function getContent()
-  {
+class DisplayTableController extends ControllerBase {
+  public function getContent() {
     // First we'll tell the user what's going on. This content can be found
     // in the twig template file: templates/description.html.twig.
     // @todo: Set up links to create nodes and point to devel module.
@@ -34,8 +32,7 @@ class DisplayTableController extends ControllerBase
   * @return string
   *   Return Hello string.
   */
-  public function display()
-  {
+  public function display() {
       /**return [
       '#type' => 'markup',
       '#markup' => $this->t('Implement method: display with parameter(s): $name'),
@@ -64,8 +61,7 @@ class DisplayTableController extends ControllerBase
     $query->fields('m', ['id', 'rimage', 'name', 'review', 'director','producer', 'writer', 'certification', 'genre', 'rating', 'runtime', 'reviewer', 'reviewdate']);
     $results = $query->execute()->fetchAll();
     $rows=array();
-    foreach($results as $data)
-    {
+    foreach($results as $data) {
       $delete = Url::fromUserInput('/reviews/form/delete/'.$data->id);
       $edit   = Url::fromUserInput('/reviews/form/reviews?num='.$data->id);
 
@@ -98,5 +94,3 @@ class DisplayTableController extends ControllerBase
     return $form;
   }
 }
-
-?>

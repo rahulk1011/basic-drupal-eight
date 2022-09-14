@@ -1,5 +1,0 @@
-name: mydata
-type: module
-description: This dispaly information what you enter your application.
-core: 8.x
-package: Custom

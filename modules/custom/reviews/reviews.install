@@ -1,7 +1,6 @@
 <?php
 
-function reviews_schema()
-{
+function reviews_schema() {
   $schema['reviews'] = array(
     'fields' => array(
       'id'=>array(

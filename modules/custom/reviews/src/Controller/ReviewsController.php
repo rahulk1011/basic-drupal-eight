@@ -1,7 +1,6 @@
 <?php
 
 namespace Drupal\reviews\Controller;
-
 use Drupal\Core\Controller\ControllerBase;
 
 /**
@@ -9,16 +8,14 @@ use Drupal\Core\Controller\ControllerBase;
 *
 * @package Drupal\reviews\Controller
 */
-class ReviewsController extends ControllerBase
-{
+class ReviewsController extends ControllerBase {
   /**
   * Display.
   *
   * @return string
   *   Return Hello string.
   */
-  public function display()
-  {
+  public function display() {
     return [
       '#type' => 'markup',
       '#markup' => $this->t('This page contain all inforamtion about Movie Reviews ')

@@ -9,8 +9,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
 * Implements hook_help().
 */
-function reviews_help($route_name, RouteMatchInterface $route_match)
-{
+function reviews_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name)
   {
     // Main module help for the reviews module.
@@ -24,8 +23,7 @@ function reviews_help($route_name, RouteMatchInterface $route_match)
   }
 }
 
-function reviews_theme()
-{
+function reviews_theme() {
   // We use a template file to allow for translation of blocks of content.
   // Therefore we need to add this content at the theming layer.
   return [
