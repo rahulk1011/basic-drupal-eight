@@ -1,0 +1,6 @@
+drupal_chatbot.settings:
+ title: 'Chat Bot settings'
+ description: 'Chat Bot UI Settings For Your Site'
+ parent: system.admin_config_services
+ route_name: drupal_chatbot.settings
+ weight: 100

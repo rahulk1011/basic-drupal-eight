@@ -1,0 +1,12 @@
+drupal_chatbot.chatbotbox:
+  version: 1.x
+  css:
+    theme:
+      css/chatbotbox.css: {}  
+  js:
+    js/chatbot.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once

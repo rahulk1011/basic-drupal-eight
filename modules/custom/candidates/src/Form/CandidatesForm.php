@@ -24,12 +24,12 @@ class CandidatesForm extends FormBase {
 	public function buildForm(array $form, FormStateInterface $form_state) {
 		$form['candidate_name'] = array(
 			'#type' => 'textfield',
-			'#title' => t('Candidate Name'),
+			'#title' => 'Candidate Name',
 			'#required' => TRUE,
 		);
 		$form['candidate_dob'] = array(
 			'#type' => 'date',
-			'#title' => t('Date of Birth'),
+			'#title' => 'Date of Birth',
 			'#required' => TRUE,
 		);
 		$form['candidate_gender'] = array(
@@ -37,23 +37,23 @@ class CandidatesForm extends FormBase {
 			'#title' => ('Gender'),
 			'#required' => TRUE,
 			'#options' => array(
-				'male' => t('Male'),
-				'female' => t('Female'),
+				'male' => 'Male',
+				'female' => 'Female',
 			),
 		);
 		$form['candidate_city'] = array(
 			'#type' => 'textfield',
-			'#title' => t('City'),
+			'#title' => 'City',
 			'#required' => TRUE,
 		);
 		$form['candidate_country'] = array(
 			'#type' => 'textfield',
-			'#title' => t('Country'),
+			'#title' => 'Country',
 			'#required' => TRUE,
 		);
 		$form['candidate_description'] = array(
 			'#type' => 'textarea',
-			'#title' => t('Description'),
+			'#title' => 'Description',
 			'#required' => TRUE,
 		);
 		

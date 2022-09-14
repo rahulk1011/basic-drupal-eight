@@ -1,0 +1,14 @@
+drupal_chatbot.default_controller_handleRequest:
+ path: '/assist'
+ defaults:
+   _controller: '\Drupal\drupal_chatbot\Controller\DefaultController::handleRequest'
+   _title: 'Handle Request'
+ requirements:
+   _access: 'TRUE'
+   
+drupal_chatbot.settings:
+  path: 'admin/config/services/chatbot-settings'
+  defaults:
+   _form: '\Drupal\drupal_chatbot\Form\ChatbotSettingsForm'
+  requirements: 
+    _permission: 'administer site configuration'

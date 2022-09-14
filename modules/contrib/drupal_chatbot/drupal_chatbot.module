@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Default template to load the Chat Bot Template.
+ * Provide config variables access to Jquery
+ */
+
+function drupal_chatbot_theme() {
+  return array(
+    'chatbot_web' => array(
+      'variables' => array('params' => array()),
+    ),
+  );
+}
+
+/**
+ * @file
+ * Attaching CSS and JS library
+ */
+
+function drupal_chatbot_page_attachments(array &$page) {
+  
+  $page['#attached']['library'][] = 'drupal_chatbot/drupal_chatbot.chatbotbox';
+  $page['#attached']['library'][] = 'drupal_chatbot/drupal_chatbot.chatbotboxjs';
+
+}
+
+/**
+ * @file
+ * Passing Config variables to attachments
+ */
+ 
+function drupal_chatbot_page_attachments_alter(&$build) {
+  
+  $config = \Drupal::config('drupal_chatbot.credentials');
+  $botlogo = $config->get('bot_logo');
+  $botuserlogo = $config->get('bot_user_logo');
+  $access_token = $config->get('access_token');
+  $build['#attached']['library'][] = 'drupal_chatbot/drupal_chatbot.chatbotboxjs';
+  $build['#attached']['drupalSettings']['chatbot']['chatbotdata']['botlogo'] = $botlogo;
+  $build['#attached']['drupalSettings']['chatbot']['chatbotdata']['botuserlogo'] = $botuserlogo;
+  $build['#attached']['drupalSettings']['chatbot']['chatbotdata']['access_token'] = $access_token;
+}

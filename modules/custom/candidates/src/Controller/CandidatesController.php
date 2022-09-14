@@ -26,7 +26,7 @@ class CandidatesController extends ControllerBase {
 			$user = User::load($uid);
 			$all_candidates = array();
 
-			$candidate_fetch = db_query("SELECT node_field_data.created AS node_field_data_created, node_field_data.nid AS nid
+			$candidate_fetch = \Drupal::database()->query("SELECT node_field_data.created AS node_field_data_created, node_field_data.nid AS nid
 			FROM {node_field_data} node_field_data
 			WHERE (node_field_data.status = '1') AND (node_field_data.type IN ('candidate_details'))
 			ORDER BY node_field_data_created ASC");

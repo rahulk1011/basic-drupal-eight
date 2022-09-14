@@ -1,0 +1,9 @@
+name: drupal_chatbot
+description: Drupal Chat Bot
+type: module
+# core: 8.x
+# Information added by Drupal.org packaging script on 2018-10-01
+version: '8.x-1.0'
+core: '8.x'
+project: 'drupal_chatbot'
+datestamp: 1538379183
