@@ -19,7 +19,6 @@ function userinfo_cron() {
         
         if($birth_m_d == $current_m_d){
             userinfo_birthday_mails($user_name, $user_mail);
-            \Drupal::logger('userinfo')->notice('Birthday mail sent to '.$user_name);
         };
     }
     drupal_flush_all_caches();
@@ -48,4 +47,6 @@ function userinfo_birthday_mails($user_name, $user_mail) {
     Admin Eight';
 
     $send_mail->mail($message);
+    \Drupal::logger('userinfo')->notice('Birthday mail sent to '.$user_name);
+    \Drupal::logger('userinfo')->info($message['body']);
 }
