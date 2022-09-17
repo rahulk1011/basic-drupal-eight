@@ -1,0 +1,6 @@
+leaveapply.form:
+ path: '/apply-leave'
+ defaults:
+  _form: '\Drupal\leaveapply\Form\LeaveapplyForm'
+ requirements:
+  _permission: 'access content'
