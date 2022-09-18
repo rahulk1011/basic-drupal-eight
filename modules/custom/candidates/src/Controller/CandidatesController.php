@@ -1,7 +1,7 @@
 <?php
 /**
 * @file
-* Contains \Drupal\candidates\Controller\TestAPIController.
+* Contains \Drupal\candidates\Controller\CandidatesController.
 */
 namespace Drupal\candidates\Controller;
 use Drupal\Core\Controller\ControllerBase;

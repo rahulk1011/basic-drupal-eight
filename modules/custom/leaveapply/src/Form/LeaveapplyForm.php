@@ -103,7 +103,6 @@ class LeaveapplyForm extends FormBase {
 
 		$node = Node::create(['type' => 'leave_application']);
 		$node->langcode = "en";
-		// $node->uid = 1;
 		$node->promote = 0;
 		$node->sticky = 0;
 		$node->title= $form_state->getValue('applicant_name').' '.$apply_date;

@@ -4,3 +4,10 @@ leaveapply.form:
   _form: '\Drupal\leaveapply\Form\LeaveapplyForm'
  requirements:
   _permission: 'access content'
+
+apply_leave:
+  path: 'api/apply_leave'
+  defaults: { _controller: '\Drupal\leaveapply\Controller\LeaveapplyController::apply_leave'}
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
