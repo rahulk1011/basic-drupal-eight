@@ -5,6 +5,13 @@ leaveapply.form:
  requirements:
   _permission: 'access content'
 
+get_leave_application:
+  path: 'api/get_leave_application'
+  defaults: { _controller: '\Drupal\leaveapply\Controller\LeaveapplyController::get_leave_application' }
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
+
 apply_leave:
   path: 'api/apply_leave'
   defaults: { _controller: '\Drupal\leaveapply\Controller\LeaveapplyController::apply_leave'}
