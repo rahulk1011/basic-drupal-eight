@@ -22,7 +22,7 @@ class Userinfo {
 			$user_mail = $result->email;
 	
 			if($birth_m_d == $current_m_d){
-				$from = 'info@basics.com';
+				$from = \Drupal::config('system.site')->get('mail');
 				$to = $user_mail;
 				$message['headers'] = array(
 					'content-type' => 'text/html',
@@ -33,12 +33,7 @@ class Userinfo {
 				$message['to'] = $to;
 				$message['subject'] = "Happy Birthday ".$user_name."!!!";
 			
-				$message['body'] = 'Dear '.$user_name.',
-				<br><br>
-				We value your special day just as much as we value you. On your birthday, we send you our warmest and most heartfelt wishes..
-				<br><br>
-				Regards,<br>
-				Admin Eight';
+				$message['body'] = 'Dear '.$user_name.',<br><br>We value your special day just as much as we value you. On your birthday, we send you our warmest and most heartfelt wishes..<br><br>Best Regards,<br>Admin Eight';
 			
 				$send_mail->mail($message);
 				\Drupal::logger('userinfo')->notice('Birthday mail sent to '.$user_name);
@@ -52,7 +47,7 @@ class Userinfo {
 		$module = 'userinfo';
 		$key = 'user_added';
 		$to = $email_id;
-		$params['message'] = 'Dear '.$first_name.'<br><br>Welcome to Basic-Eight. Your information has been storeds successfully.<br><br>Regards,<br>Admin Eight';
+		$params['message'] = 'Dear '.$first_name.'<br><br>Welcome to Basic-Eight. Your information has been storeds successfully.<br><br>Best Regards,<br>Admin Eight';
 		$params['title'] = 'Welcome to Basic-8';
 		$langcode = 'en';
 		$send = true;
