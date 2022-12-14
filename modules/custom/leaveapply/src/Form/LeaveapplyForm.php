@@ -27,6 +27,9 @@ class LeaveapplyForm extends FormBase {
 		$applicant_name = $user->field_first_name->value.' '.$user->field_last_name->value;
 
 		if($user->roles->target_id != ''){
+			$form['#attached']['library'][] = 'leaveapply/leaveapply';
+			$form['#prefix'] = '<div id="leaveapply-form" class="leaveapply-container">';
+			$form['#suffix'] = '</div>';
 			$form['leave_type'] = array(
 				'#type' => 'select',
 				'#title' => 'Leave Type',
@@ -41,16 +44,22 @@ class LeaveapplyForm extends FormBase {
 				'#type' => 'date',
 				'#title' => 'From',
 				'#required' => TRUE,
+				'#prefix' => '<div class="leave_date leave_from">',
+				'#suffix' => '</div>',
 			);
 			$form['leave_to'] = array(
 				'#type' => 'date',
 				'#title' => 'To',
 				'#required' => TRUE,
+				'#prefix' => '<div class="leave_date leave_to">',
+				'#suffix' => '</div>',
 			);
 			$form['leave_reason'] = array(
 				'#type' => 'textarea',
 				'#title' => 'Reason',
 				'#required' => TRUE,
+				'#prefix' => '<div class="leave_reason">',
+				'#suffix' => '</div>',
 			);
 			$form['user_id'] = array(
 				'#type' => 'hidden',
@@ -61,11 +70,14 @@ class LeaveapplyForm extends FormBase {
 				'#value' => $applicant_name,
 			);
 			
+			
 			$form['actions']['#type'] = 'actions';
 			$form['actions']['submit'] = array(
 				'#type' => 'submit',
 				'#value' => $this->t('Apply'),
-				'#button_type' => 'primary',
+				//'#button_type' => 'primary',
+				'#prefix' => '<div class="btn-leave-apply">',
+				'#suffix' => '</div>',
 			);
 			return $form;
 		}

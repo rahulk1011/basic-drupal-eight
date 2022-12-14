@@ -1,0 +1,9 @@
+leaveapply:
+  version: 1.0
+  js:
+    js/leaveapply.js: {}
+  css:
+    css/leaveapply.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

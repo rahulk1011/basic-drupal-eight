@@ -1,0 +1,29 @@
+.leave_date {
+    width: 100px;
+}
+
+#edit-leave-from{
+    width: 500px;
+}
+
+.leaveapply-container .leaveapply-form{
+    background-color: red;
+}
+
+.leave_reason {
+    border: 2px solid red;
+}
+
+.btn-leave-apply {
+    width: 100px;
+    height: 50px;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
+#edit-submit {
+    width: 100px;
+    height: 50px;
+    border: 2px solid red;
+    border-radius: 5px;
+}
