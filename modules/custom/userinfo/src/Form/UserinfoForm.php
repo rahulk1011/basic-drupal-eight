@@ -139,9 +139,13 @@ class UserinfoForm extends FormBase {
 			$fields["state"] = $field['user_state'];
 			$fields["zipcode"] = $field['user_zipcode'];
 
+			$first_name = $fields["firstname"];
+			$email_id = $fields["email"];
+
 			$conn->insert('a_user_info')
 			->fields($fields)->execute();
 			drupal_set_message('User information has been saved succesfully..');
+			$send_mail = \Drupal::service('userinfo_service')->user_mail_notification($first_name, $email_id);
 		}
 		catch(Exception $ex){
 			drupal_set_message(t($ex->getMessage()), 'error');

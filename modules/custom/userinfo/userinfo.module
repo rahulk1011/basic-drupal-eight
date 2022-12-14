@@ -1,10 +1,29 @@
 <?php
 
+use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Component\Utility\SafeMarkup;
+use Drupal\Component\Utility\Html;
+
 /**
 * Implements hook_cron().
 */
-
 function userinfo_cron() {
     $value = \Drupal::service('userinfo_service')->userinfo_birthday_mails();
     drupal_flush_all_caches();
+}
+
+/**
+* Implements hook_mail().
+*/
+function userinfo_mail($key, &$message, $params) {
+    $options = array(
+        'langcode' => $message['langcode'],
+    );
+    switch ($key) {
+        case 'user_added':
+            $message['from'] = \Drupal::config('system.site')->get('mail');
+            $message['subject'] = t('Your mail subject Here: @title', array('@title' => $params['title']), $options);
+            $message['body'][] = Html::escape($params['message']);
+            break;
+    }
 }
