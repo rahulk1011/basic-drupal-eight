@@ -55,12 +55,11 @@ class Userinfo {
 		$result = $mailManager->mail($module, $key, $to, $langcode, $params, NULL, $send);
 		\Drupal::logger('user_mail')->notice('<pre><code>'.print_r($result, TRUE).'</code></pre>');
 		if ($result['result'] != true) {
-			$message = t('There was a problem sending your email notification to @email.', array('@email' => $to));
+			$message = t('There was a problem sending your email to @email.', array('@email' => $to));
 		  	drupal_set_message($message, 'error');
 		  	\Drupal::logger('mail-log')->error($message);
 		  	return;
 		}
-	  
 		$message = t('An email notification has been sent to @email ', array('@email' => $to));
 		drupal_set_message($message);
 		\Drupal::logger('mail-log')->notice($message);

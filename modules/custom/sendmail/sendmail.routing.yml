@@ -1,0 +1,6 @@
+sendmail.form:
+ path: '/send-mails'
+ defaults:
+  _form: '\Drupal\sendmail\Form\SendmailForm'
+ requirements:
+  _permission: 'access content'

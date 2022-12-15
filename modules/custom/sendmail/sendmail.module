@@ -5,22 +5,14 @@ use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\Html;
 
 /**
-* Implements hook_cron().
-*/
-function userinfo_cron() {
-    $value = \Drupal::service('userinfo_service')->userinfo_birthday_mails();
-    drupal_flush_all_caches();
-}
-
-/**
 * Implements hook_mail().
 */
-function userinfo_mail($key, &$message, $params) {
+function sendmail_mail($key, &$message, $params) {
     $options = array(
         'langcode' => $message['langcode'],
     );
     switch ($key) {
-        case 'user_added':
+        case 'sample_mail':
             $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
             $message['headers']['MIME-Version'] = '1.0';
             $message['from'] = \Drupal::config('system.site')->get('mail');
